@@ -29,6 +29,7 @@ public class ArticleController {
     public String creatArticle(ArticleDto form) {
         log.info(form.toString());
         Article article = form.toEntity();
+        articleRepository.save(article);
         return "";
     }
 }
