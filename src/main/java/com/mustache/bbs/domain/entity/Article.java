@@ -18,7 +18,7 @@ import javax.persistence.Id;
 @Getter
 public class Article {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // db에 id생성을 맡기겠다는 의미
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
