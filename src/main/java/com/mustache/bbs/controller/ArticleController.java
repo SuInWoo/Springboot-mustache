@@ -38,7 +38,7 @@ public class ArticleController {
             model.addAttribute("article", optArticle.get());
             return "/articles/show";
         }else {
-            return "error";
+            return "/articles/error";
         }
 
     }
