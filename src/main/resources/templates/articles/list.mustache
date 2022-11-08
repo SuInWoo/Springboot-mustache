@@ -1,6 +1,25 @@
-<div>
-    이 페이지는 list 페이지 입니다.
-    {{#articles}}
-        {{id}} {{title}} {{contents}}
-    {{/articles}}
-</div>
+{{>layouts/header}}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Contents</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {{#articles}}
+            <tr>
+                <th>{{Id}}</th>
+                <td><a href="/articles/"{{id}}">{{title}}</a></td>
+                <td>{{contents}}</td>
+            </tr>
+        {{/articles}}
+    </tbody>
+</table>
+
+<a href="/articles/new"><button type="button" class="btn btn-secondary">new article</button></a>
+<a href="/articles/list"><button type="button" class="btn btn-secondary">article List</button></a>
+
+{{>layouts/footer}}
