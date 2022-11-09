@@ -1,12 +1,10 @@
 package com.mustache.bbs.domain.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /*
     @Entity -> JPA에서 객체로 다루겠다는 선언
@@ -14,13 +12,14 @@ import javax.persistence.Id;
     @GeneratedValue → ID를 직접 생성하지 않고 자동으로 생성하도록 한 경우 붙입니다.
  */
 @Entity
+@Table(name = "article")
 @NoArgsConstructor
 @Getter
+@AllArgsConstructor
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String title;
     private String contents;
 
