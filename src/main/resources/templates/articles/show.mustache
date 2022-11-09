@@ -1,12 +1,13 @@
 {{>layouts/header}}
 <div class="card" style="width: 18rem;">
-{{#article}}
+    {{#article}}
         <div class="card-body">
             <h5 class="card-title">{{title}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{id}}</h6>
             <p class="card-text">{{contents}}</p>
             <a href="/articles/new" class="card-link"><button type="button" class="btn btn-danger">new article</button></a>
-            <a href="/articles/list" class="card-link"><button type="button" class="btn btn-secondary">article List</button></a>
+            <a href="/articles" class="card-link"><button type="button" class="btn btn-secondary">article List</button></a>
         </div>
-{{/article}}
+        <a href="/articles/{{id}}/edit" class="btn btn-danger">Edit</a>
+    {{/article}}
 </div>
