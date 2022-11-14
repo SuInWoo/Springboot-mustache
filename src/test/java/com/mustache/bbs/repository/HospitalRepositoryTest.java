@@ -61,4 +61,11 @@ class HospitalRepositoryTest {
         printHospitalNameAndAddress(hospitals);
     }
 
+    @Test
+    @DisplayName("정렬 - orderBy")
+    void findByTotalNumberOfBedsWithBetweenOrderBy() {
+        List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsBetweenOrderByTotalNumberOfBedsDesc(10, 19);
+        printHospitalNameAndAddress(hospitals);
+    }
+
 }

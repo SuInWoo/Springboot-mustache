@@ -13,4 +13,6 @@ public interface HospitalRepository extends JpaRepository<Hospital, Integer> {
     List<Hospital> findByTotalNumberOfBedsGreaterThanEqualAndTotalNumberOfBedsLessThan(Integer min, Integer max);
 
     List<Hospital> findByTotalNumberOfBedsBetween(Integer min, Integer max);
+
+    List<Hospital> findByTotalNumberOfBedsBetweenOrderByTotalNumberOfBedsDesc(Integer min, Integer max);
 }
