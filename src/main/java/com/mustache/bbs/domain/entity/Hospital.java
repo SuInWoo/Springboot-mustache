@@ -21,7 +21,31 @@ public class Hospital {
     private String businessTypeName;
     private Float totalAreaSize;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public String getRoadNameAddress() {
+        return roadNameAddress;
+    }
+
     public String getHospitalName() {
         return hospitalName;
+    }
+
+    public Integer getPatientRoomCount() {
+        return patientRoomCount;
+    }
+
+    public Integer getTotalNumberOfBeds() {
+        return totalNumberOfBeds;
+    }
+
+    public String getBusinessTypeName() {
+        return businessTypeName;
+    }
+
+    public Float getTotalAreaSize() {
+        return totalAreaSize;
     }
 }
