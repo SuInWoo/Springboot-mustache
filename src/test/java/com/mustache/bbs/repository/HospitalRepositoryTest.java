@@ -48,16 +48,16 @@ class HospitalRepositoryTest {
     }
 
     @Test
-    @DisplayName("병상 수가 10개 이상 20개 미만 병원 찾기")
+    @DisplayName("병상 수가 10개 이상 20개 미만 병원 찾기 - ~Than")
     void findByTotalNumberOfBeds() {
         List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsGreaterThanEqualAndTotalNumberOfBedsLessThan(10, 20);
         printHospitalNameAndAddress(hospitals);
     }
 
     @Test
-    @DisplayName("병상 수가 10개 이상 20개 이하 병원 찾기")
+    @DisplayName("병상 수가 10개 이상 20개 미만 병원 찾기 - Between ")
     void findByTotalNumberOfBedsWithBetween() {
-        List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsBetween(10, 20);
+        List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsBetween(10, 19);
         printHospitalNameAndAddress(hospitals);
     }
 
