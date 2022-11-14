@@ -18,5 +18,10 @@ public class Hospital {
     private String hospitalName;
     private Integer patientRoomCount;
     private Integer totalNumberOfBeds;
+    private String businessTypeName;
     private Float totalAreaSize;
+
+    public String getHospitalName() {
+        return hospitalName;
+    }
 }
