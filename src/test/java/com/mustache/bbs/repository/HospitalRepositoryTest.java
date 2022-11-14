@@ -1,15 +1,12 @@
 package com.mustache.bbs.repository;
 
 import com.mustache.bbs.domain.entity.Hospital;
-import org.hibernate.Session;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest
@@ -19,6 +16,15 @@ class HospitalRepositoryTest {
     HospitalRepository hospitalRepository;
 
     @Test
+    void printHospitalNameAndAddress(List<Hospital> hospitals) {
+        for (var hospital : hospitals) {
+            System.out.printf("%s | %s %f\n", hospital.getHospitalName(), hospital.getRoadNameAddress(),
+                    hospital.getTotalAreaSize());
+        }
+        System.out.println(hospitals.size());
+    }
+
+    @Test
     @DisplayName("BusinessTypeName이 보건소 보건지소 보건진료소인 데이터가 잘 나오는지")
     void findByBusinessTypeNameIn() {
         List<String> inClues = new ArrayList<>();
@@ -26,9 +32,7 @@ class HospitalRepositoryTest {
         inClues.add("보건지소");
         inClues.add("보건진료소");
         List<Hospital> hospitals = hospitalRepository.findByBusinessTypeNameIn(inClues);
-        for (var hospital: hospitals) {
-            System.out.println(hospital.getHospitalName());
-        }
+        printHospitalNameAndAddress(hospitals);
     }
 
     @Test
@@ -40,8 +44,14 @@ class HospitalRepositoryTest {
         inClues.add("보건진료소");
         String address = "인천광역시";
         List<Hospital> hospitals = hospitalRepository.findByRoadNameAddressContainsAndBusinessTypeNameIn(address, inClues);
-        for (Hospital hospital : hospitals) {
-            System.out.println(hospital.getHospitalName());
-        }
+        printHospitalNameAndAddress(hospitals);
     }
+
+    @Test
+    @DisplayName("병상 수가 10개 이상 20개 미만 병원 찾기")
+    void findByTotalNumberOfBeds() {
+        List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsGreaterThanEqualAndTotalNumberOfBedsLessThan(10, 20);
+        printHospitalNameAndAddress(hospitals);
+    }
+
 }
