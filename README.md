@@ -1,6 +1,6 @@
-# Springboot-mustache
+# 🧑‍💻 Springboot-mustache
 
-## deploy.sh
+## 🗒️ deploy.sh
 
 ```
 # 변수 저장
@@ -37,7 +37,7 @@ docker run -d -p 8080:8080 -e SPRING_DATASOURCE_URL=jdbc:mysql://$URL -e SPRING_
 echo " > 배포가 종료되었습니다."
 ```
 
-## 실행 예시
+## 💻 실행 예시
 ```
 1. vim deploy.sh
 2. chmod 755 deploy.sh
