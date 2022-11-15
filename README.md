@@ -7,8 +7,8 @@
 CONTAINER_NAME=${1}  // 현재 실행되고 있는 컨테이너 이름
 PROJECT_NAME=${2} // 프로젝트 명
 IMAGE_NAME=${3} // 이미지 이름
-URL=${4} // 주소 ex)ec2-15-165-59-7.ap-northeast-2.compute.amazonaws.com:3306/likelion_db
-PASSWORD=${5} // DB 비밀번호
+URL=${4} // URL ex)ec2-15-165-59-7.ap-northeast-2.compute.amazonaws.com:3306/likelion_db
+PASSWORD=${5} // DB PassWord
 
 # 배포 시작
 echo "> 배포를 시작하겠습니다."
