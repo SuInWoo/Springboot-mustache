@@ -31,7 +31,7 @@ docker build -t $IMAGE_NAME .
 
 # docker run
 echo "> Docker Run"
-docker run -d -p 8080:8080 -e SPRING_DATASOURCE_URL=jdbc:mysql://$URL -e SPRING_DATASOURCE_PASSWORD=$PASSWORD -d $IMAGE_NAME
+docker run -p 8080:8080 -e SPRING_DATASOURCE_URL=jdbc:mysql://$URL -e SPRING_DATASOURCE_PASSWORD=$PASSWORD -d $IMAGE_NAME
 
 # 배포 종료
 echo " > 배포가 종료되었습니다."
