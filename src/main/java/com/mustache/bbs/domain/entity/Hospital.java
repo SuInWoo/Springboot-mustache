@@ -1,5 +1,8 @@
 package com.mustache.bbs.domain.entity;
 
+import com.mustache.bbs.domain.dto.HospitalResponse;
+import lombok.Getter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,6 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "nation_wide_hospitals")
+@Getter
 public class Hospital {
     @Id
     private Integer id;
@@ -21,31 +25,12 @@ public class Hospital {
     private String businessTypeName;
     private Float totalAreaSize;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public String getRoadNameAddress() {
-        return roadNameAddress;
-    }
-
-    public String getHospitalName() {
-        return hospitalName;
-    }
-
-    public Integer getPatientRoomCount() {
-        return patientRoomCount;
-    }
-
-    public Integer getTotalNumberOfBeds() {
-        return totalNumberOfBeds;
-    }
-
-    public String getBusinessTypeName() {
-        return businessTypeName;
-    }
-
-    public Float getTotalAreaSize() {
-        return totalAreaSize;
+    // HospitalEntity를 HospitalResponse Dto로 만들어주는 부분
+    public static HospitalResponse of(Hospital hospital) {
+        return new HospitalResponse(hospital.getId(),
+                hospital.getRoadNameAddress(), hospital.getHospitalName(),
+                hospital.getPatientRoomCount(), hospital.getTotalNumberOfBeds(),
+                hospital.getBusinessTypeName(), hospital.getTotalAreaSize());
     }
 }
+
