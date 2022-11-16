@@ -1,5 +1,7 @@
 package com.mustache.bbs.controller;
 
+import com.mustache.bbs.domain.dto.ArticleDto;
+import com.mustache.bbs.domain.dto.HospitalResponse;
 import com.mustache.bbs.service.ArticleService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -27,6 +30,8 @@ class ArticleRestControllerTest {
     void jsonResponse() throws Exception {
 
         // {"id":1,"title":"aaa","content":"suin"}
+        given(articleService.getArticle(1L))
+                .willReturn(new ArticleDto(1L, "aaa", "suin"));
 
         String url = String.format("/api/v1/articles/%d", 1);
         mockMvc.perform(get(url))
@@ -35,5 +40,6 @@ class ArticleRestControllerTest {
                 .andExpect(jsonPath("$.contents").exists())
                 .andDo(print());
 
+        verify(articleService).getArticle(1L);// getHospital()메소드의 호출이 있었는지 확인
     }
 }

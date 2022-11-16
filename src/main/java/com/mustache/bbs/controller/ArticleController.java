@@ -37,7 +37,7 @@ public class ArticleController {
 
     @PostMapping("/{id}/update")
     public String update(@PathVariable Long id, ArticleDto articleDto, Model model) {
-        log.info("title:{} contents:{}", articleDto.getTitle(), articleDto.getContent());
+        log.info("title:{} contents:{}", articleDto.getTitle(), articleDto.getContents());
         Article article = articleRepository.save(articleDto.toEntity());
         model.addAttribute("article", article);
         return String.format("redirect:/articles/%d", article.getId());

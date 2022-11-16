@@ -11,9 +11,9 @@ import lombok.ToString;
 public class ArticleDto {
     private Long id;
     private String title;
-    private String content;
+    private String contents;
 
     public Article toEntity() {
-        return new Article(this.id, this.title, this.content);
+        return new Article(this.id, this.title, this.contents);
     }
 }
