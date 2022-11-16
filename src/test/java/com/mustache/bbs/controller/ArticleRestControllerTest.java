@@ -22,8 +22,8 @@ class ArticleRestControllerTest {
     @Autowired
     MockMvc mockMvc;
 
-    @MockBean   // @Autowired아님 --> HospitalService는 테스트를 위해 가짜 객체를 쓰겠다는 뜻
-    ArticleService articleService;    // --> 가짜 객체를 쓰면 좋은점 DB와 상관없이 테스트 가능
+    @MockBean
+    ArticleService articleService;
 
     @Test
     @DisplayName("Json형식으로 한개의 데이터가 리턴 되는지")
@@ -40,6 +40,6 @@ class ArticleRestControllerTest {
                 .andExpect(jsonPath("$.contents").exists())
                 .andDo(print());
 
-        verify(articleService).getArticle(1L);// getHospital()메소드의 호출이 있었는지 확인
+        verify(articleService).getArticle(1L);
     }
 }
