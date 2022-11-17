@@ -3,6 +3,7 @@ package com.mustache.bbs.domain.entity;
 import com.mustache.bbs.domain.dto.ArticleDto;
 import com.mustache.bbs.domain.dto.HospitalResponse;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import javax.persistence.*;
     @Id → @Entity가 붙어있다면 꼭 붙여주어야 합니다. Primary Key를 의미 합니다.
     @GeneratedValue → ID를 직접 생성하지 않고 자동으로 생성하도록 한 경우 붙입니다.
  */
+@Builder
 @Entity
 @Table(name = "article")
 @NoArgsConstructor
