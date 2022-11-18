@@ -1,16 +1,22 @@
 package com.mustache.bbs.domain.entity;
 
 import com.mustache.bbs.domain.dto.HospitalResponse;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Builder
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "nation_wide_hospitals")
-@Getter
 public class Hospital {
     @Id
     private Integer id;
@@ -25,6 +31,7 @@ public class Hospital {
     private String businessTypeName;
     private Integer businessStatusCode;
     private Float totalAreaSize;
+
 
     // HospitalEntity를 HospitalResponse Dto로 만들어주는 부분
     public static HospitalResponse of(Hospital hospital) {
