@@ -1,6 +1,6 @@
 {{>layouts/header}}
-<form action="/hospitals/search" method="get">
-    지역: <input type="text" name="keyword" />
+<form class="container" action="/hospitals/search" method="get">
+    지역 <input type="text" name="keyword" />
     <input type="submit" />
 </form>
 <form class="container">
@@ -22,11 +22,16 @@
     {{/hospitals}}
     </tbody>
 </table>
-
-<ul class="pagination justify-content-center">
-    <li class="page-item"><a class="page-link" href="?page={{previous}}">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="?page={{next}}">Next</a></li>
-</ul>
 </form>
+<ul class="pagination justify-content-center">
+    {{#keyword}}
+        <li class="page-item"><a class="page-link" href="?keyword={{keyword}}&page={{previous}}">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="?keyword={{keyword}}&page={{next}}">Next</a></li>
+    {{/keyword}}
+    {{^keyword}}
+        <li class="page-item"><a class="page-link" href="?page={{previous}}">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{next}}">Next</a></li>
+    {{/keyword}}
+</ul>
 
 {{>layouts/footer}}

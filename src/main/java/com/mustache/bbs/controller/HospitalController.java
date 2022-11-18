@@ -39,6 +39,7 @@ public class HospitalController {
                                    @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         Page<Hospital> hospitals = hospitalRepository.findByRoadNameAddressContaining(keyword, pageable);
         model.addAttribute("hospitals", hospitals);
+        model.addAttribute("keyword", keyword);
         model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next", pageable.next().getPageNumber());
         return "hospital/list";
