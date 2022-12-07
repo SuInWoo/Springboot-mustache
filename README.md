@@ -1,5 +1,11 @@
 # 🧑‍💻 Springboot-mustache
 
+## ERD
+
+```
+![image](https://user-images.githubusercontent.com/63344592/206087642-d15b37d8-2090-4946-b1d9-738e7acea629.png)
+```
+
 ## 🗒️ deploy.sh
 
 ```
@@ -43,3 +49,4 @@ echo " > 배포가 종료되었습니다."
 2. chmod 755 deploy.sh
 3. sh deploy.sh <종료할 컨테이너 이름> <프로젝트 이름> <이미지 이름> <URL> <DB PassWord>
 ```
+
