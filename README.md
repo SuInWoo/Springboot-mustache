@@ -2,9 +2,9 @@
 
 ## ERD
 
-```
+
 ![image](https://user-images.githubusercontent.com/63344592/206087642-d15b37d8-2090-4946-b1d9-738e7acea629.png)
-```
+
 
 ## 🗒️ deploy.sh
 
